@@ -2,7 +2,7 @@
     "FileSearchService": {
       "file-search-mcp": {
         "args": [
-          "../FileSearchService/server.py"
+          "server.py"
         ],
         "command": "python",
         "autoApprove": [],
