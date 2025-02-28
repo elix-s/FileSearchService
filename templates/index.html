@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Search Service</title>
+    <script>
+        function searchFiles() {
+            document.getElementById("results").innerHTML = "Search...";
+            var query = document.getElementById("query").value;
+            fetch("/search?query=" + encodeURIComponent(query))
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("results").innerHTML = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    document.getElementById("results").innerHTML = "Error occurred while searching.";
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>File Search Service</h1>
+    <form onsubmit="event.preventDefault(); searchFiles();">
+        <input type="text" id="query" placeholder="Enter file path fragment" required>
+        <button type="submit">Search</button>
+    </form>
+    <br><br>
+    <div id="results">
+        <!-- Search Results -->
+    </div>
+</body>
+</html>
