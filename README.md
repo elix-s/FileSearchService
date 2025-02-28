@@ -6,7 +6,7 @@ Web-сервер для поиска файлов на компьютере на
     "FileSearchService": {
       "file-search-mcp": {
         "args": [
-          "../FileSearchService/server.py"
+          "server.py"
         ],
         "command": "python",
         "autoApprove": [],
