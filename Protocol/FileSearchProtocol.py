@@ -1,12 +1,12 @@
 import http.server
 import urllib.parse
 import json
-from Context.FileSearchContext import SearchContext
+from Context.FileSearchContext import FileSearchContext
 from os import path
 
-class RequestHandler(http.server.SimpleHTTPRequestHandler):
+class FileSearchProtocol(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
-        self.context = SearchContext()  
+        self.context = FileSearchContext()  
         super().__init__(*args, **kwargs)
 
     def do_GET(self):

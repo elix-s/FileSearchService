@@ -1,10 +1,10 @@
-from Model.FileSearchModel import search_files
+from Model.FileSearchModel import FileSearchModel
 
-class SearchContext:
+class FileSearchContext:
     def __init__(self):
         self.query = ""
         self.results = []
 
     def process_query(self, query):
         self.query = query
-        self.results = search_files(query)
+        self.results = FileSearchModel.search_files(query)

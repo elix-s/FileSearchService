@@ -1,9 +1,9 @@
 import socketserver
-from Protocol.FileSearchProtocol import RequestHandler
+from Protocol.FileSearchProtocol import FileSearchProtocol
 
 def run():
     PORT = 8000
-    with socketserver.TCPServer(("", PORT), RequestHandler) as httpd:
+    with socketserver.TCPServer(("", PORT), FileSearchProtocol) as httpd:
         print(f"Server started at http://localhost:{PORT}")
         httpd.serve_forever()
 
